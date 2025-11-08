@@ -95,8 +95,8 @@ export const ClasseHabilidadesModal: React.FC<ClasseHabilidadesModalProps> = ({
             const habilidade = selectedClasseData.habilidades.find(h => h.nome === nomeHabilidade);
             return {
                 nome: habilidade?.nome || 'Desconhecida',
-                custo: habilidade?.custoMagia || 0,
-                custoVigor: habilidade?.custoVigor || 0,
+                custo: habilidade?.custoMagia ?? 0,
+                custoVigor: habilidade?.custoVigor ?? 0,
                 dano: habilidade?.dano || '',
                 tipo: habilidade?.tipo === 'ataque' ? 'dano' : habilidade?.tipo === 'defesa' ? 'buff' : 'utilidade',
                 isClassSkill: true,
@@ -185,8 +185,8 @@ export const ClasseHabilidadesModal: React.FC<ClasseHabilidadesModalProps> = ({
                                             </div>
                                             <div className="text-right ml-4 flex-shrink-0">
                                                 <div className={`font-bold ${isAcquired ? 'text-green-800' : ''} ${isCompradaComPV ? 'text-yellow-600' : ''}`}>{buttonText}</div>
-                                                {h.custoMagia > 0 && <p className="text-xs text-blue-600">✨ {h.custoMagia}</p>}
-                                                {h.custoVigor > 0 && <p className="text-xs text-yellow-600">⚡ {h.custoVigor}</p>}
+                                                {(h.custoMagia ?? 0) > 0 && <p className="text-xs text-blue-600">✨ {h.custoMagia}</p>}
+                                                {(h.custoVigor ?? 0) > 0 && <p className="text-xs text-yellow-600">⚡ {h.custoVigor}</p>}
                                             </div>
                                         </div>
                                     </button>
